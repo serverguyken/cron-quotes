@@ -9,11 +9,10 @@ async function getQuotes(url) {
     quotes = data;
     let quoteNumber;
     quotes.then(quotes => {
-        quoteNumber = (Math.random() * 1000).toFixed();
-        const quoteMessage = `Hey Kenny, here's a quote to start your day 😀. \n**--${quotes[quoteNumber].text}--** @ 
-        ${quotes[quoteNumber].author ? quotes[quoteNumber].author : "No author" ? quotes[quoteNumber].author === "undefined" : 'No author'}`;
-        console.log(quoteMessage);
         cron.schedule('* * * * *', () => { 
+            quoteNumber = (Math.random() * 1000).toFixed();
+            const quoteMessage = `Hey Kenny, here's a quote to start your day 😀. \n**--${quotes[quoteNumber].text}--** @ 
+            ${quotes[quoteNumber].author ? quotes[quoteNumber].author : "No author" ? quotes[quoteNumber].author === "undefined" : 'No author'}`;
             client.messages.create({
                 to: process.env.TO_NUMBER,
                 from: process.env.TWILIO_ACCOUNT_NUMBER,
