@@ -9,8 +9,7 @@ async function getQuotes(url) {
     quotes = data;
     let quoteNumber;
     quotes.then(quotes => {
-        cron.schedule('* * * * *', () => { 
-            quoteNumber = (Math.random() * 1000).toFixed();
+        quoteNumber = (Math.random() * 1000).toFixed();
             const quoteMessage = `Hey Kenny, here's a quote to start your day 😀. \n**--${quotes[quoteNumber].text}--** @ 
             ${quotes[quoteNumber].author ? quotes[quoteNumber].author : "No author" ? quotes[quoteNumber].author === "undefined" : 'No author'}`;
             client.messages.create({
@@ -18,10 +17,6 @@ async function getQuotes(url) {
                 from: process.env.TWILIO_ACCOUNT_NUMBER,
                 body: quoteMessage
             }).then(message => console.log(message.sid));
-        });
-        setInterval(function() {
-            
-        },1000)
     })
 }
 
