@@ -13,13 +13,12 @@ async function getQuotes(url) {
         const quoteMessage = `Hey Kenny, here's a quote to start your day 😀. \n**--${quotes[quoteNumber].text}--** @ 
         ${quotes[quoteNumber].author ? quotes[quoteNumber].author : "No author" ? quotes[quoteNumber].author === "undefined" : 'No author'}`;
         console.log(quoteMessage);
-        cron.schedule('* * * * *', () => {
-           
-            // client.messages.create({
-            //     to: process.env.TO_NUMBER,
-            //     from: process.env.TWILIO_ACCOUNT_NUMBER,
-            //     body: quoteMessage
-            // }).then(message => console.log(message.sid));
+        cron.schedule('* * * * *', () => { 
+            client.messages.create({
+                to: process.env.TO_NUMBER,
+                from: process.env.TWILIO_ACCOUNT_NUMBER,
+                body: quoteMessage
+            }).then(message => console.log(message.sid));
         });
         setInterval(function() {
             
