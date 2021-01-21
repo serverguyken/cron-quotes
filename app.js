@@ -30,10 +30,9 @@ app.get('/', (req,res) => {
                     to: process.env.TO_NUMBER,
                     from: process.env.TWILIO_ACCOUNT_NUMBER,
                     body: quoteMessage
-                }).then(message => console.log(message.sid));
+                }).then(message => console.log(`Message sid => ${message.sid}`)).catch(error => console.log(error))
         })
     }
-    
     getQuotes('https://type.fit/api/quotes');
 })
 
