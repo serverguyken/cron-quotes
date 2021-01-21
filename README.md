@@ -1,5 +1,5 @@
 ## Cron-Quote
-An automated program that sends me inspirational quotes every morning at 8 AM!
+An automated program that sends inspirational quotes every morning at 8 AM!
 
 * ## Use Case
     * Sometimes it's hard to stay motivated as a programmer, this program can be used to send inspirational quotes every morning before you start your day, to keep you motivated!
