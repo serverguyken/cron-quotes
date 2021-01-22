@@ -4,8 +4,8 @@ const port = 3000 || process.env.PORT
 const fetch = require('node-fetch');
 const cron = require('node-cron')
 require('dotenv').config();
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const accountSid = "AC2119fa68b887ea8e987a1d808965f592";
+const authToken = "5ce28c0f9b962fc3e25bf0c32abddef5";
 
 
 const client = require('twilio')(accountSid,authToken);
